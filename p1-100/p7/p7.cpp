@@ -1,5 +1,5 @@
 /*
-    Problem 3
+    Problem 7
 
     Author: Shane Waxler
 */
@@ -22,15 +22,20 @@ bool isPrime(int n){
     return true;
 }
 
-int main(){
-    long num = 600851475143;
-    for(int i = pow(num,0.5)-1; i >=3; i-=2){
-        if(num%i == 0){
-            if(isPrime(i)){
-                cout << i << endl;
-                break;
-            }
-        }
+int nthPrimeNumber(int n){
+    int primes = 1;
+    int i = 3;
+    while(true){
+        if(isPrime(i))
+            primes++;
+        if(primes == n)
+            return i;
+        i+=2;
     }
+    return 0;
+}
+
+int main(){
+    cout << nthPrimeNumber(10001) << endl;
     return 0;
 }
